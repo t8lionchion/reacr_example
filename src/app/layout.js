@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         {/* <!-- Navigation--> */}
       <Navbar />
       {/* <!-- Page Header--> */}
-      <Hero />
+      
         {children}
       {/*  <!-- Footer--> */}
       <Footer />

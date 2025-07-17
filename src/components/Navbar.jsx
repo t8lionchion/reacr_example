@@ -12,8 +12,8 @@ export function Navbar(){
                     <ul className="navbar-nav ms-auto py-4 py-lg-0">
                         <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="/">Home</Link></li>
                         <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="/about">About</Link></li>
-                        <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="post.html">Sample Post</Link></li>
-                        <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</Link></li>
+                        <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="/sample-post">Sample Post</Link></li>
+                        <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</Link></li>
                     </ul>
                 </div>
             </div>
