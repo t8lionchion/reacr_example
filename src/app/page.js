@@ -1,10 +1,15 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 
+export function Viewh1(){
+  return(
+    <h1>你好嗎</h1>
+  );
+}
 export default function Home() {
   return (
     <div className={styles.page}>
-      <h1>你好嗎</h1>
+      <Viewh1/>
       <main className={styles.main}>
         <Image
           className={styles.logo}
