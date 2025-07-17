@@ -3,14 +3,13 @@ import styles from "./page.module.css";
 import { Navbar } from '../components/Navbar';
 import {Footer} from '../components/Footer';
 import {Hero} from '../components/Hero';
+
 export default function Home() {
   return (
 
     <>
-      {/* <!-- Navigation--> */}
-      <Navbar />
-      {/* <!-- Page Header--> */}
-      <Hero />
+      
+    
       {/* <!-- Main Content--> */}
       <div className="container px-4 px-lg-5">
         <div className="row gx-4 gx-lg-5 justify-content-center">
@@ -73,8 +72,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      {/*  <!-- Footer--> */}
-      <Footer />
+      
       {/* <!-- Bootstrap core JS--> */}
       {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script> */}
       {/* <!-- Core theme JS--> */}
