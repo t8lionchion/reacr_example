@@ -2,7 +2,7 @@ export function PostPreview({post}) {
     return (
         <>
             <div className="post-preview">
-                <a href="post.html">
+                <a href={'/posts/'+post.id}>
                     <h2 className="post-title">
                         {post.title}
                     </h2>
