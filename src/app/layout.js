@@ -3,6 +3,8 @@ import "./globals.css";
 import { Navbar } from '../components/Navbar';
 import {Footer} from '../components/Footer';
 import BootstrapClient from '../providers/Bootstrap';
+import NextAuthProvider from "@/providers/SessionProvider";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -34,15 +36,14 @@ export default function RootLayout({ children }) {
     <html lang="zh-tw">
       
       <body>
-        {/* <!-- Navigation--> */}
-      <Navbar />
-      {/* <!-- Page Header--> */}
-      
-        {children}
-      {/*  <!-- Footer--> */}
-      <Footer />
-      <BootstrapClient />
+        <NextAuthProvider>
+          <Navbar />      {/* 可以安全使用 useSession() */}
+          {children}
+          <Footer />
+          <BootstrapClient />  {/* 載入 Bootstrap JS */}
+        </NextAuthProvider>
       </body>
+
     </html>
   );
 }

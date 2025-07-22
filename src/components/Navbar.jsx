@@ -1,6 +1,22 @@
+"use client";
 import Link from "next/link";
-export function Navbar(){
-    return(
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+export function Navbar() {
+    const { data: session } = useSession();
+    const profileImage = session?.user?.image || "/images/default_avatar.jpg";
+
+    const [providers, setProviders] = useState(null);
+
+    useEffect(() => {
+        const setAuthProviders = async () => {
+            const providers = await getProviders();
+            setProviders(providers);
+        };
+        setAuthProviders();
+    }, [session]);
+    return (
         <nav className="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div className="container px-4 px-lg-5">
                 <Link className="navbar-brand" href="index.html">Start Bootstrap</Link>
@@ -15,6 +31,27 @@ export function Navbar(){
                         <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="/sample-post">Sample Post</Link></li>
                         <li className="nav-item"><Link className="nav-link px-lg-3 py-3 py-lg-4" href="/contact">Contact</Link></li>
                     </ul>
+                    {session && (
+                        <>
+                            <Image src={profileImage} alt="" width={40} height={40}></Image>
+                        </>
+                    )}
+                    {!session ? (
+                        providers &&
+                        Object.values(providers).map((provider) => (
+                            <button
+                                key={provider.name}
+                                onClick={() => signIn(provider.id)}
+                                className="login-button"
+                            >
+                                {provider.name} 登入 / 註冊
+                            </button>
+                        ))
+                    ) : (
+                        <button onClick={() => signOut()} className="logout-button">
+                            登出
+                        </button>
+                    )}
                 </div>
             </div>
         </nav>
